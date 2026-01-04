@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Future Together ❤️</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
         
@@ -44,6 +43,8 @@
             display: none;
             min-height: 100vh;
             padding: 2rem;
+            align-items: center;
+            justify-content: center;
         }
         
         .screen.active {
@@ -160,6 +161,25 @@
             height: 100%;
             object-fit: cover;
         }
+
+        .text-center { text-align: center; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mt-6 { margin-top: 1.5rem; }
+        .space-y-3 > * + * { margin-top: 0.75rem; }
+        .flex { display: flex; }
+        .gap-3 { gap: 0.75rem; }
+        .gap-4 { gap: 1rem; }
+        .justify-center { justify-content: center; }
+        .items-center { align-items: center; }
+        .fixed { position: fixed; }
+        .bottom-8 { bottom: 2rem; }
+        .left-0 { left: 0; }
+        .right-0 { right: 0; }
+
+        #navigation { display: none; }
+        #navigation.show { display: flex; }
     </style>
 </head>
 <body>
@@ -167,13 +187,13 @@
     <div id="hearts-container"></div>
 
     <!-- Screen 1: Cover -->
-    <div id="screen-0" class="screen active cover-container flex items-center justify-center">
+    <div id="screen-0" class="screen active cover-container">
         <div class="cover-card fade-in">
-            <div class="text-6xl mb-6">💌</div>
-            <h1 class="text-4xl md:text-5xl font-bold mb-4" style="color: #f43f5e;">
+            <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">💌</div>
+            <h1 style="font-size: 2.5rem; font-weight: bold; color: #f43f5e; margin-bottom: 1rem;">
                 Our Future Together
             </h1>
-            <p class="text-gray-600 text-lg mb-8">
+            <p style="color: #6b7280; font-size: 1.125rem; margin-bottom: 2rem;">
                 A collection of moments, promises, and dreams we're building together.
             </p>
             <button onclick="goToScreen(1)" class="btn" style="background: #f43f5e; color: white;">
@@ -183,23 +203,23 @@
     </div>
 
     <!-- Screen 2: How It Started -->
-    <div id="screen-1" class="screen flex items-center justify-center" style="background: linear-gradient(135deg, #e9d5ff 0%, #fce7f3 100%);">
+    <div id="screen-1" class="screen" style="background: linear-gradient(135deg, #e9d5ff 0%, #fce7f3 100%);">
         <div class="card fade-in">
-            <div class="text-7xl text-center mb-6">💬</div>
-            <h2 class="text-4xl font-bold text-center mb-6" style="color: #9333ea;">
+            <div class="text-center mb-6" style="font-size: 4rem;">💬</div>
+            <h2 class="text-center mb-6" style="font-size: 2.25rem; font-weight: bold; color: #9333ea;">
                 How It All Started
             </h2>
-            <p class="text-gray-700 text-lg text-center leading-relaxed">
+            <p class="text-center" style="color: #374151; font-size: 1.125rem; line-height: 1.75;">
                 It all started in a movie theatre when I gently placed my hand on hers. Later, while having frankie, I hugged her and she looked at me with the most beautiful smile. In that moment, I knew I had to kiss her, and I did. That magical kiss was the beginning of our beautiful journey together. From that day on, we started dating, and my heart has been hers ever since. She is my everything, and I'm giving her all of me. 💕
             </p>
         </div>
     </div>
 
     <!-- Screen 3: I Promise You -->
-    <div id="screen-2" class="screen flex items-center justify-center" style="background: linear-gradient(135deg, #fce7f3 0%, #e9d5ff 100%);">
+    <div id="screen-2" class="screen" style="background: linear-gradient(135deg, #fce7f3 0%, #e9d5ff 100%);">
         <div class="card fade-in">
-            <div class="text-7xl text-center mb-6">💝</div>
-            <h2 class="text-4xl font-bold text-center mb-8" style="color: #9333ea;">
+            <div class="text-center mb-6" style="font-size: 4rem;">💝</div>
+            <h2 class="text-center mb-8" style="font-size: 2.25rem; font-weight: bold; color: #9333ea;">
                 I Promise You
             </h2>
             <div class="space-y-3">
@@ -212,9 +232,9 @@
     </div>
 
     <!-- Screen 4: You & Me (Photos) -->
-    <div id="screen-3" class="screen flex items-center justify-center" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);">
+    <div id="screen-3" class="screen" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);">
         <div class="card fade-in">
-            <h2 class="text-4xl font-bold text-center mb-6" style="color: #06b6d4;">
+            <h2 class="text-center mb-6" style="font-size: 2.25rem; font-weight: bold; color: #06b6d4;">
                 You & Me
             </h2>
             <div class="photo-frame" id="photo-display">
@@ -227,16 +247,16 @@
     </div>
 
     <!-- Screen 5: Special Message -->
-    <div id="screen-4" class="screen flex items-center justify-center" style="background: linear-gradient(135deg, #e9d5ff 0%, #fce7f3 100%);">
+    <div id="screen-4" class="screen" style="background: linear-gradient(135deg, #e9d5ff 0%, #fce7f3 100%);">
         <div class="card fade-in">
-            <h2 class="text-4xl font-bold text-center mb-6" style="color: #9333ea;">
+            <h2 class="text-center mb-6" style="font-size: 2.25rem; font-weight: bold; color: #9333ea;">
                 A Special Message
             </h2>
-            <div class="p-6 rounded-2xl" style="background: linear-gradient(135deg, #fae8ff 0%, #fce7f3 100%);">
-                <p class="text-gray-700 text-xl text-center leading-relaxed mb-6 font-semibold">
+            <div style="padding: 1.5rem; border-radius: 1rem; background: linear-gradient(135deg, #fae8ff 0%, #fce7f3 100%);">
+                <p class="text-center mb-6" style="color: #374151; font-size: 1.25rem; line-height: 1.75; font-weight: 600;">
                     For me, there is no such thing as a "special message" in my life. What I have is something far more precious - a special person. And that person is YOU. You are not just a message or a moment, you are my everything. You are the heartbeat of my story, the smile in my memories, and the love that defines my existence. 💕
                 </p>
-                <div class="text-center text-5xl space-x-4">
+                <div class="text-center" style="font-size: 3rem; display: flex; justify-content: center; gap: 1rem;">
                     <span>💝</span>
                     <span>💖</span>
                     <span>💗</span>
@@ -246,7 +266,7 @@
     </div>
 
     <!-- Navigation Buttons -->
-    <div id="navigation" class="fixed bottom-8 left-0 right-0 flex justify-center gap-4" style="display: none;">
+    <div id="navigation" class="fixed bottom-8 left-0 right-0 flex justify-center gap-4">
         <button onclick="prevScreen()" id="prev-btn" class="nav-btn" style="background: #ec4899;">
             ←
         </button>
@@ -256,6 +276,8 @@
     </div>
 
     <script>
+        console.log('Script loaded!'); // Debug line
+        
         // Configuration
         let currentScreen = 0;
         const totalScreens = 5;
@@ -271,6 +293,7 @@
 
         // Initialize
         window.onload = function() {
+            console.log('Window loaded!'); // Debug line
             createHearts();
             setupPhotoGallery();
         };
@@ -319,18 +342,27 @@
 
         // Navigation functions
         function goToScreen(screenNum) {
+            console.log('Going to screen:', screenNum); // Debug line
+            
             // Hide current screen
-            document.getElementById('screen-' + currentScreen).classList.remove('active');
+            const currentScreenEl = document.getElementById('screen-' + currentScreen);
+            if (currentScreenEl) {
+                currentScreenEl.classList.remove('active');
+            }
             
             // Show new screen
             currentScreen = screenNum;
-            document.getElementById('screen-' + currentScreen).classList.add('active');
+            const newScreenEl = document.getElementById('screen-' + currentScreen);
+            if (newScreenEl) {
+                newScreenEl.classList.add('active');
+            }
             
             // Show navigation buttons (except on cover screen)
+            const nav = document.getElementById('navigation');
             if (currentScreen > 0) {
-                document.getElementById('navigation').style.display = 'flex';
+                nav.classList.add('show');
             } else {
-                document.getElementById('navigation').style.display = 'none';
+                nav.classList.remove('show');
             }
             
             updateNavButtons();
@@ -352,8 +384,8 @@
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
             
-            prevBtn.disabled = currentScreen <= 1;
-            nextBtn.disabled = currentScreen >= totalScreens - 1;
+            if (prevBtn) prevBtn.disabled = currentScreen <= 1;
+            if (nextBtn) nextBtn.disabled = currentScreen >= totalScreens - 1;
         }
 
         // Keyboard navigation
