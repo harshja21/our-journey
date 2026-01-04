@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Future Together ❤️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .heart {
+            position: absolute;
+            color: #ffc0cb;
+            opacity: 0.3;
+            animation: float 6s infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .screen {
+            display: none;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .screen.active {
+            display: flex;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 2rem;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .nav-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .nav-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .nav-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        
+        .photo-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .photo-indicator.active {
+            width: 32px;
+            border-radius: 10px;
+            background: #06b6d4;
+        }
+        
+        .promise-item {
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: linear-gradient(135deg, #fce7f3 0%, #e9d5ff 100%);
+            border-radius: 1rem;
+            font-size: 1.1rem;
+            color: #4a5568;
+            text-align: left;
+        }
+
+        .cover-container {
+            background: linear-gradient(135deg, #fce7f3 0%, #e9d5ff 50%, #dbeafe 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cover-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 3rem;
+            padding: 3rem 2rem;
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .photo-frame {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 4/5;
+            background: #1a202c;
+            border-radius: 1rem;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Hearts -->
+    <div id="hearts-container"></div>
+
+    <!-- Screen 1: Cover -->
+    <div id="screen-0" class="screen active cover-container flex items-center justify-center">
+        <div class="cover-card fade-in">
+            <div class="text-6xl mb-6">💌</div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4" style="color: #f43f5e;">
+                Our Future Together
+            </h1>
+            <p class="text-gray-600 text-lg mb-8">
+                A collection of moments, promises, and dreams we're building together.
+            </p>
+            <button onclick="goToScreen(1)" class="btn" style="background: #f43f5e; color: white;">
+                Start Our Journey
+            </button>
+        </div>
+    </div>
+
+    <!-- Screen 2: How It Started -->
+    <div id="screen-1" class="screen flex items-center justify-center" style="background: linear-gradient(135deg, #e9d5ff 0%, #fce7f3 100%);">
+        <div class="card fade-in">
+            <div class="text-7xl text-center mb-6">💬</div>
+            <h2 class="text-4xl font-bold text-center mb-6" style="color: #9333ea;">
+                How It All Started
+            </h2>
+            <p class="text-gray-700 text-lg text-center leading-relaxed">
+                It all started in a movie theatre when I gently placed my hand on hers. Later, while having frankie, I hugged her and she looked at me with the most beautiful smile. In that moment, I knew I had to kiss her, and I did. That magical kiss was the beginning of our beautiful journey together. From that day on, we started dating, and my heart has been hers ever since. She is my everything, and I'm giving her all of me. 💕
+            </p>
+        </div>
+    </div>
+
+    <!-- Screen 3: I Promise You -->
+    <div id="screen-2" class="screen flex items-center justify-center" style="background: linear-gradient(135deg, #fce7f3 0%, #e9d5ff 100%);">
+        <div class="card fade-in">
+            <div class="text-7xl text-center mb-6">💝</div>
+            <h2 class="text-4xl font-bold text-center mb-8" style="color: #9333ea;">
+                I Promise You
+            </h2>
+            <div class="space-y-3">
+                <div class="promise-item">💖 I promise that no matter where life takes us, even if we both end up married to other people, I will love you forever and ever and ever. This love is eternal.</div>
+                <div class="promise-item">💕 If I ever get the chance to meet you secretly after marriage, I will. We'll meet as friends on the surface, but our hearts will always carry that romantic connection we share.</div>
+                <div class="promise-item">💗 I promise to always take care of you, even if no one else does. Your happiness and well-being will always matter to me, no matter the circumstances.</div>
+                <div class="promise-item">💓 You will forever hold a special place in my heart. Our bond is something that transcends time and distance, and nothing can ever change that.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen 4: You & Me (Photos) -->
+    <div id="screen-3" class="screen flex items-center justify-center" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);">
+        <div class="card fade-in">
+            <h2 class="text-4xl font-bold text-center mb-6" style="color: #06b6d4;">
+                You & Me
+            </h2>
+            <div class="photo-frame" id="photo-display">
+                <img src="photo1.jpg" alt="Our Memory" id="current-photo">
+            </div>
+            <div class="flex justify-center gap-3 mt-6" id="photo-indicators">
+                <!-- Photo indicators will be added by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen 5: Special Message -->
+    <div id="screen-4" class="screen flex items-center justify-center" style="background: linear-gradient(135deg, #e9d5ff 0%, #fce7f3 100%);">
+        <div class="card fade-in">
+            <h2 class="text-4xl font-bold text-center mb-6" style="color: #9333ea;">
+                A Special Message
+            </h2>
+            <div class="p-6 rounded-2xl" style="background: linear-gradient(135deg, #fae8ff 0%, #fce7f3 100%);">
+                <p class="text-gray-700 text-xl text-center leading-relaxed mb-6 font-semibold">
+                    For me, there is no such thing as a "special message" in my life. What I have is something far more precious - a special person. And that person is YOU. You are not just a message or a moment, you are my everything. You are the heartbeat of my story, the smile in my memories, and the love that defines my existence. 💕
+                </p>
+                <div class="text-center text-5xl space-x-4">
+                    <span>💝</span>
+                    <span>💖</span>
+                    <span>💗</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div id="navigation" class="fixed bottom-8 left-0 right-0 flex justify-center gap-4" style="display: none;">
+        <button onclick="prevScreen()" id="prev-btn" class="nav-btn" style="background: #ec4899;">
+            ←
+        </button>
+        <button onclick="nextScreen()" id="next-btn" class="nav-btn" style="background: #a855f7;">
+            →
+        </button>
+    </div>
+
+    <script>
+        // Configuration
+        let currentScreen = 0;
+        const totalScreens = 5;
+        
+        // Photo gallery images - YOUR PHOTOS!
+        const photos = [
+            'photo1.jpg',
+            'photo2.jpg',
+            'photo3.jpg',
+            'photo4.jpg'
+        ];
+        let currentPhoto = 0;
+
+        // Initialize
+        window.onload = function() {
+            createHearts();
+            setupPhotoGallery();
+        };
+
+        // Create floating hearts
+        function createHearts() {
+            const container = document.getElementById('hearts-container');
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '♥';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.top = Math.random() * 100 + '%';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.animationDelay = Math.random() * 6 + 's';
+                container.appendChild(heart);
+            }
+        }
+
+        // Setup photo gallery
+        function setupPhotoGallery() {
+            const indicators = document.getElementById('photo-indicators');
+            photos.forEach((photo, index) => {
+                const indicator = document.createElement('div');
+                indicator.className = 'photo-indicator' + (index === 0 ? ' active' : '');
+                indicator.onclick = () => changePhoto(index);
+                indicators.appendChild(indicator);
+            });
+        }
+
+        // Change photo
+        function changePhoto(index) {
+            currentPhoto = index;
+            document.getElementById('current-photo').src = photos[index];
+            
+            // Update indicators
+            const indicators = document.querySelectorAll('.photo-indicator');
+            indicators.forEach((ind, i) => {
+                if (i === index) {
+                    ind.classList.add('active');
+                } else {
+                    ind.classList.remove('active');
+                }
+            });
+        }
+
+        // Navigation functions
+        function goToScreen(screenNum) {
+            // Hide current screen
+            document.getElementById('screen-' + currentScreen).classList.remove('active');
+            
+            // Show new screen
+            currentScreen = screenNum;
+            document.getElementById('screen-' + currentScreen).classList.add('active');
+            
+            // Show navigation buttons (except on cover screen)
+            if (currentScreen > 0) {
+                document.getElementById('navigation').style.display = 'flex';
+            } else {
+                document.getElementById('navigation').style.display = 'none';
+            }
+            
+            updateNavButtons();
+        }
+
+        function nextScreen() {
+            if (currentScreen < totalScreens - 1) {
+                goToScreen(currentScreen + 1);
+            }
+        }
+
+        function prevScreen() {
+            if (currentScreen > 0) {
+                goToScreen(currentScreen - 1);
+            }
+        }
+
+        function updateNavButtons() {
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = currentScreen <= 1;
+            nextBtn.disabled = currentScreen >= totalScreens - 1;
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') prevScreen();
+            if (e.key === 'ArrowRight') nextScreen();
+        });
+    </script>
+</body>
+</html>
