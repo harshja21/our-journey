@@ -289,7 +289,7 @@
                 You & Me
             </h2>
             <div class="photo-frame" id="photo-display">
-                <img src="photo1.jpg" alt="Our Memory" id="current-photo" onerror="this.parentElement.innerHTML='<div class=photo-error>📷<br>Add photo1.jpg, photo2.jpg, photo3.jpg, photo4.jpg<br>in the same folder as index.html</div>'">
+                <img src="photo1.jpg.jpeg" alt="Our Memory" id="current-photo" onerror="this.parentElement.innerHTML='<div class=photo-error>📷<br>Photos not found<br>Make sure files are named exactly:<br>photo1.jpg.jpeg<br>photo2.jpg.jpeg<br>photo3.jpg.jpeg<br>photo4.jpg.jpeg</div>'">
             </div>
             <div class="flex justify-center gap-3 mt-6" id="photo-indicators">
                 <!-- Photo indicators will be added by JavaScript -->
@@ -338,12 +338,12 @@
         let currentScreen = 0;
         const totalScreens = 5;
         
-        // Photo gallery images
+        // Photo gallery images - FIXED TO .jpeg EXTENSION
         const photos = [
-            'photo1.jpg',
-            'photo2.jpg',
-            'photo3.jpg',
-            'photo4.jpg'
+            'photo1.jpg.jpeg',
+            'photo2.jpg.jpeg',
+            'photo3.jpg.jpeg',
+            'photo4.jpg.jpeg'
         ];
         let currentPhoto = 0;
 
@@ -396,15 +396,14 @@
             });
         }
 
-        // Send kisses animation
+        // Send kisses animation - ONLY LIPS EMOJI 💋
         function sendKisses() {
-            const kissEmojis = ['💋', '😘', '😙', '😚', '💕', '💖'];
-            const numberOfKisses = 15;
+            const numberOfKisses = 20; // More kisses!
             
             for (let i = 0; i < numberOfKisses; i++) {
                 setTimeout(() => {
-                    createKissEmoji(kissEmojis[Math.floor(Math.random() * kissEmojis.length)]);
-                }, i * 200);
+                    createKissEmoji('💋'); // ONLY LIPS
+                }, i * 150);
             }
         }
 
@@ -418,8 +417,8 @@
             const startY = Math.random() * window.innerHeight;
             
             // Random ending position
-            const endX = (Math.random() - 0.5) * 300;
-            const endY = (Math.random() - 0.5) * 300;
+            const endX = (Math.random() - 0.5) * 400;
+            const endY = (Math.random() - 0.5) * 400;
             
             kiss.style.left = startX + 'px';
             kiss.style.top = startY + 'px';
