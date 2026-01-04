@@ -154,12 +154,21 @@
             border-radius: 1rem;
             overflow: hidden;
             margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .photo-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        .photo-error {
+            color: white;
+            padding: 2rem;
+            text-align: center;
         }
 
         .text-center { text-align: center; }
@@ -180,6 +189,48 @@
 
         #navigation { display: none; }
         #navigation.show { display: flex; }
+
+        /* Kiss button and animation */
+        .kiss-btn {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+
+        .kiss-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.6);
+        }
+
+        .kiss-emoji {
+            position: fixed;
+            font-size: 3rem;
+            pointer-events: none;
+            animation: flyKiss 3s ease-out forwards;
+            z-index: 1000;
+        }
+
+        @keyframes flyKiss {
+            0% {
+                transform: translate(0, 0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(1.5);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -238,7 +289,7 @@
                 You & Me
             </h2>
             <div class="photo-frame" id="photo-display">
-                <img src="photo1.jpg" alt="Our Memory" id="current-photo">
+                <img src="photo1.jpg" alt="Our Memory" id="current-photo" onerror="this.parentElement.innerHTML='<div class=photo-error>📷<br>Add photo1.jpg, photo2.jpg, photo3.jpg, photo4.jpg<br>in the same folder as index.html</div>'">
             </div>
             <div class="flex justify-center gap-3 mt-6" id="photo-indicators">
                 <!-- Photo indicators will be added by JavaScript -->
@@ -246,7 +297,7 @@
         </div>
     </div>
 
-    <!-- Screen 5: Special Message -->
+    <!-- Screen 5: Special Message + Kiss Button -->
     <div id="screen-4" class="screen" style="background: linear-gradient(135deg, #e9d5ff 0%, #fce7f3 100%);">
         <div class="card fade-in">
             <h2 class="text-center mb-6" style="font-size: 2.25rem; font-weight: bold; color: #9333ea;">
@@ -260,6 +311,13 @@
                     <span>💝</span>
                     <span>💖</span>
                     <span>💗</span>
+                </div>
+                
+                <!-- Kiss Button -->
+                <div class="text-center">
+                    <button onclick="sendKisses()" class="kiss-btn">
+                        Send Me A Kiss 💋
+                    </button>
                 </div>
             </div>
         </div>
@@ -276,13 +334,11 @@
     </div>
 
     <script>
-        console.log('Script loaded!'); // Debug line
-        
         // Configuration
         let currentScreen = 0;
         const totalScreens = 5;
         
-        // Photo gallery images - YOUR PHOTOS!
+        // Photo gallery images
         const photos = [
             'photo1.jpg',
             'photo2.jpg',
@@ -293,7 +349,6 @@
 
         // Initialize
         window.onload = function() {
-            console.log('Window loaded!'); // Debug line
             createHearts();
             setupPhotoGallery();
         };
@@ -327,7 +382,8 @@
         // Change photo
         function changePhoto(index) {
             currentPhoto = index;
-            document.getElementById('current-photo').src = photos[index];
+            const img = document.getElementById('current-photo');
+            img.src = photos[index];
             
             // Update indicators
             const indicators = document.querySelectorAll('.photo-indicator');
@@ -340,10 +396,46 @@
             });
         }
 
+        // Send kisses animation
+        function sendKisses() {
+            const kissEmojis = ['💋', '😘', '😙', '😚', '💕', '💖'];
+            const numberOfKisses = 15;
+            
+            for (let i = 0; i < numberOfKisses; i++) {
+                setTimeout(() => {
+                    createKissEmoji(kissEmojis[Math.floor(Math.random() * kissEmojis.length)]);
+                }, i * 200);
+            }
+        }
+
+        function createKissEmoji(emoji) {
+            const kiss = document.createElement('div');
+            kiss.className = 'kiss-emoji';
+            kiss.textContent = emoji;
+            
+            // Random starting position
+            const startX = Math.random() * window.innerWidth;
+            const startY = Math.random() * window.innerHeight;
+            
+            // Random ending position
+            const endX = (Math.random() - 0.5) * 300;
+            const endY = (Math.random() - 0.5) * 300;
+            
+            kiss.style.left = startX + 'px';
+            kiss.style.top = startY + 'px';
+            kiss.style.setProperty('--tx', endX + 'px');
+            kiss.style.setProperty('--ty', endY + 'px');
+            
+            document.body.appendChild(kiss);
+            
+            // Remove after animation
+            setTimeout(() => {
+                kiss.remove();
+            }, 3000);
+        }
+
         // Navigation functions
         function goToScreen(screenNum) {
-            console.log('Going to screen:', screenNum); // Debug line
-            
             // Hide current screen
             const currentScreenEl = document.getElementById('screen-' + currentScreen);
             if (currentScreenEl) {
